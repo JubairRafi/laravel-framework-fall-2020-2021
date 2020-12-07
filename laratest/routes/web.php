@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\homeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,3 +20,6 @@ Route::get('/', function () {
 
 Route::get('/login', [loginController::class, 'index']);
 Route::post('/login', [loginController::class, 'verifyy']);
+
+Route::get('/home', [homeController::class, 'index']);
+
