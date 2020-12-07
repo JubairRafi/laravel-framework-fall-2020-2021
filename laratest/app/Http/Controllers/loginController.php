@@ -8,4 +8,7 @@ class loginController extends Controller
    public function index(){
        return view('login.index');
    }
+   public function verifyy(){
+       echo 'posted';
+   }
 }

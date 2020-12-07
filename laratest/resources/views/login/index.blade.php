@@ -6,6 +6,7 @@
 <body>
 
 	<form method="post">
+	@csrf
 		<fieldset>
 			<legend>Login</legend>
 		<table>
