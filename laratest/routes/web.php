@@ -33,6 +33,10 @@ Route::get('/userlist', [homeController::class, 'userlist']);
 
 
 Route::get('/details/{id}', [homeController::class, 'show']);
+
 Route::get('/edit/{id}', [homeController::class, 'edit']);
+Route::post('/edit/{id}', [homeController::class, 'update']);
+
 Route::get('/delete/{id}', [homeController::class, 'delete']);
+Route::post('/delete/{id}', [homeController::class, 'destroy']);
 
