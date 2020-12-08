@@ -25,7 +25,7 @@ Route::post('/login', [loginController::class, 'verifyy']);
 Route::get('/logout', [logoutController::class, 'index']);
 
 
-Route::get('/home', [homeController::class, 'index']);
+Route::get('/home', [homeController::class, 'index'])->middleware('sess');
 Route::get('/create', [homeController::class, 'create']);
 Route::post('/create', [homeController::class, 'store']);
 

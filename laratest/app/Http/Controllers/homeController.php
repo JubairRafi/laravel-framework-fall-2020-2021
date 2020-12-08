@@ -41,7 +41,10 @@ class homeController extends Controller
          }
 
     function delete($id){
-        echo $id;
+        $users = $this->deleteuser($id);
+        // echo $id;
+
+        return view('home.userlist')->with('users',$users);
          }
 
    function update($id){
@@ -85,5 +88,22 @@ class homeController extends Controller
 
         return $users;
 
+    }
+
+    private function deleteuser($id){
+        $users =  [
+            ['id'=> 1, 'name'=>'xyz', 'email'=>'xyz@aiub.edu', 'cgpa'=>4],
+            ['id'=> 2, 'name'=>'abc', 'email'=>'abc@aiub.edu', 'cgpa'=>3],
+            ['id'=> 3, 'name'=>'asd', 'email'=>'asd@aiub.edu', 'cgpa'=>3.5],
+            ['id'=> 4, 'name'=>'pqr', 'email'=>'pqr@aiub.edu', 'cgpa'=>2.4],
+            ['id'=> 5, 'name'=>'alamin', 'email'=>'alamin@aiub.edu', 'cgpa'=>1.2]
+        ];
+        for($i=0; $i < count($users); $i++){
+            if ($id==$users[$i]['id']) {
+                array_splice($users, $i-1, $i);
+            }
+        }
+
+        return $users;
     }
 }
