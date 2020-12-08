@@ -29,6 +29,17 @@ class homeController extends Controller
         return view('home.userlist')->with('users',$users);
     }
 
+    function show($id){
+        echo $id;
+        }
+
+    function edit($id){
+       echo $id;
+         }
+    function delete($id){
+        echo $id;
+         }
+
     private function getUserlist(){
         return [
             ['id'=> 1, 'name'=>'xyz', 'email'=>'xyz@aiub.edu', 'cgpa'=>4],

@@ -31,3 +31,8 @@ Route::post('/create', [homeController::class, 'store']);
 
 Route::get('/userlist', [homeController::class, 'userlist']);
 
+
+Route::get('/details/{id}', [homeController::class, 'show']);
+Route::get('/edit/{id}', [homeController::class, 'edit']);
+Route::get('/delete/{id}', [homeController::class, 'delete']);
+
