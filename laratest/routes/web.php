@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\logoutController;
 use App\Http\Controllers\homeController;
 /*
 |--------------------------------------------------------------------------
@@ -21,5 +22,12 @@ Route::get('/', function () {
 Route::get('/login', [loginController::class, 'index']);
 Route::post('/login', [loginController::class, 'verifyy']);
 
+Route::get('/logout', [logoutController::class, 'index']);
+
+
 Route::get('/home', [homeController::class, 'index']);
+Route::get('/create', [homeController::class, 'create']);
+Route::post('/create', [homeController::class, 'store']);
+
+Route::get('/userlist', [homeController::class, 'userlist']);
 
