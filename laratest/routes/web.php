@@ -28,7 +28,7 @@ Route::group(['middleware'=>['sess']],function(){
     Route::get('/userlist', [homeController::class, 'userlist'])->middleware('restrictF');
 
     Route::group(['middleware'=>['typeV']],function(){
-        Route::get('/create', [homeController::class, 'create']);
+        Route::get('/create', [homeController::class, 'create'])->name('home.create');
         Route::post('/create', [homeController::class, 'store']);
 
         Route::get('/details/{id}', [homeController::class, 'show']);

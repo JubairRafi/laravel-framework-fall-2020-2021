@@ -18,7 +18,12 @@ class homeController extends Controller
     function create(){
         return view('home.create');
     }
-    function store(){
+    function store(Request $req){
+        $req->validate([
+            'name' => 'required|min:3',
+            'email'=> 'required',
+            'cgpa' => 'required'
+        ])->validate();
         return redirect('/userlist');
     }
 
