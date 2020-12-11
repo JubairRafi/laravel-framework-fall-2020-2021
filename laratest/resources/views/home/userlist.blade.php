@@ -18,7 +18,9 @@
 			<td>NAME</td>
 			<td>EMAIL</td>
 			<td>CGPA</td>
-			<td>Action</td>
+			@if(session('restrict')=='admin')
+				<td>Action</td>
+			@endif
 		</tr>
 
 		@for($i=0; $i < count($users); $i++)
@@ -27,11 +29,13 @@
 			<td>{{$users[$i]['name']}}</td>
 			<td>{{$users[$i]['email']}}</td>
 			<td>{{$users[$i]['cgpa']}}</td>
-			<td>
-				<a href="/details/{{$users[$i]['id']}}">Details</a> |
-				<a href="/edit/{{$users[$i]['id']}}">Edit</a> |
-				<a href="/delete/{{$users[$i]['id']}}">Delete</a> 
-			</td>
+			@if(session('restrict')=='admin')
+				<td>
+					<a href="/details/{{$users[$i]['id']}}">Details</a> |
+					<a href="/edit/{{$users[$i]['id']}}">Edit</a> |
+					<a href="/delete/{{$users[$i]['id']}}">Delete</a> 
+				</td>
+			@endif
 		</tr>
 		@endfor
 	</table>

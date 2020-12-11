@@ -64,5 +64,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'sess'=>\App\Http\Middleware\verfySession::class,
         'typeV' => \App\Http\Middleware\typeverify::class,
+        'restrictF' => \App\Http\Middleware\restrictFeature::class,
     ];
 }

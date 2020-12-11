@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class typeverify
+class restrictFeature
 {
     /**
      * Handle an incoming request.
@@ -16,11 +16,13 @@ class typeverify
      */
     public function handle(Request $request, Closure $next)
     {
+
         if($request->session()->get('type')=='admin'){
+            $request->session()->put('restrict','admin');
             return $next($request);
          }else{
-            $request->session()->flash('msg', 'invalid request...');
-            return redirect('/home');
+            $request->session()->put('restrict','user');
+            return $next($request);
          } 
     }
 }
