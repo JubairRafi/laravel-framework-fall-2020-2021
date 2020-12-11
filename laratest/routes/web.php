@@ -24,7 +24,7 @@ Route::post('/login', [loginController::class, 'verifyy']);
 Route::get('/logout', [logoutController::class, 'index']);
 
 Route::group(['middleware'=>['sess']],function(){
-    Route::get('/home', [homeController::class, 'index']);
+    Route::get('/home', [homeController::class, 'index'])->name('home.index');
     Route::get('/userlist', [homeController::class, 'userlist'])->middleware('restrictF');
 
     Route::group(['middleware'=>['typeV']],function(){
@@ -33,7 +33,7 @@ Route::group(['middleware'=>['sess']],function(){
 
         Route::get('/details/{id}', [homeController::class, 'show']);
     
-        Route::get('/edit/{id}', [homeController::class, 'edit']);
+        Route::get('/edit/{id}', [homeController::class, 'edit'])->name('home.edit');
         Route::post('/edit/{id}', [homeController::class, 'update']);
         
         Route::get('/delete/{id}', [homeController::class, 'delete']);

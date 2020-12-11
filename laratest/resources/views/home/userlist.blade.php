@@ -6,7 +6,7 @@
 <body>
 
 	<h3>All User</h3>
-	<a href="/home">Back</a> |
+	<a href="{{route('home.index')}}">Back</a> |
 	<a href="/logout">logout</a>
 
 	<br>
@@ -32,7 +32,7 @@
 			@if(session('restrict')=='admin')
 				<td>
 					<a href="/details/{{$users[$i]['id']}}">Details</a> |
-					<a href="/edit/{{$users[$i]['id']}}">Edit</a> |
+					<a href="{{route('home.edit',$users[$i]['id'])}}">Edit</a> |
 					<a href="/delete/{{$users[$i]['id']}}">Delete</a> 
 				</td>
 			@endif
