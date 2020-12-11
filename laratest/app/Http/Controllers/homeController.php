@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
+use Validator;
 
 class homeController extends Controller
 {
@@ -18,12 +20,12 @@ class homeController extends Controller
     function create(){
         return view('home.create');
     }
-    function store(Request $req){
-        $req->validate([
-            'name' => 'required|min:3',
-            'email'=> 'required',
-            'cgpa' => 'required'
-        ])->validate();
+    function store(userRequest $req){
+        // $req->validate([
+        //     'name' => 'required|min:3',
+        //     'email'=> 'required',
+        //     'cgpa' => 'required'
+        // ])->validate();
         return redirect('/userlist');
     }
 
