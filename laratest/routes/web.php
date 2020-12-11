@@ -21,22 +21,27 @@ Route::get('/', function () {
 
 Route::get('/login', [loginController::class, 'index']);
 Route::post('/login', [loginController::class, 'verifyy']);
-
 Route::get('/logout', [logoutController::class, 'index']);
 
+Route::group(['middleware'=>['sess']],function(){
+    Route::get('/home', [homeController::class, 'index']);
+    Route::get('/userlist', [homeController::class, 'userlist']);
+    
+    Route::group(['middleware'=>['typeV']],function(){
+        Route::get('/create', [homeController::class, 'create']);
+        Route::post('/create', [homeController::class, 'store']);
 
-Route::get('/home', [homeController::class, 'index'])->middleware('sess');
-Route::get('/create', [homeController::class, 'create']);
-Route::post('/create', [homeController::class, 'store']);
+        Route::get('/details/{id}', [homeController::class, 'show']);
+    
+        Route::get('/edit/{id}', [homeController::class, 'edit']);
+        Route::post('/edit/{id}', [homeController::class, 'update']);
+        
+        Route::get('/delete/{id}', [homeController::class, 'delete']);
+        Route::post('/delete/{id}', [homeController::class, 'destroy']);
+    });
+    
 
-Route::get('/userlist', [homeController::class, 'userlist']);
+});
 
 
-Route::get('/details/{id}', [homeController::class, 'show']);
-
-Route::get('/edit/{id}', [homeController::class, 'edit']);
-Route::post('/edit/{id}', [homeController::class, 'update']);
-
-Route::get('/delete/{id}', [homeController::class, 'delete']);
-Route::post('/delete/{id}', [homeController::class, 'destroy']);
 
