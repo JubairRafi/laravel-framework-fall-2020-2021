@@ -20,13 +20,24 @@ class homeController extends Controller
     function create(){
         return view('home.create');
     }
-    function store(userRequest $req){
+    function store(Request $req){
         // $req->validate([
         //     'name' => 'required|min:3',
         //     'email'=> 'required',
         //     'cgpa' => 'required'
         // ])->validate();
-        return redirect('/userlist');
+
+        if ($req->hasFile('myimg')) {
+            $file= $req->file('myimg');
+           // echo 'file name: '.$file->getClientOriginalName();
+
+            if ($file->move('upload', $file->getClientOriginalName())) {
+                echo 's';
+            }else{
+                echo 'f';
+            }
+        }
+        //return redirect('/userlist');
     }
 
     function userlist(){
