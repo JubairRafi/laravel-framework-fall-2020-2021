@@ -47,10 +47,10 @@ class homeController extends Controller
     }
 
     function show($id){
-        $users = $this->getuserdetails($id);
         // echo $id;
+        $user = ['id'=> 1, 'name'=>'xyz', 'email'=>'xyz@aiub.edu', 'cgpa'=>4, 'img'=>'2.jpg'];
 
-        return view('home.userdetails')->with('users',$users);
+        return view('home.userdetails', $user);
         }
 
     function edit($id){
