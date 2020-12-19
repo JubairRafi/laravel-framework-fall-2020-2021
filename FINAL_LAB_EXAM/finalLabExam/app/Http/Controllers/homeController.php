@@ -20,15 +20,9 @@ class homeController extends Controller
         return view('home.register');
     }
 
-    public  function store(Request $req){
-        //$req->validate([
-        //   'name' => 'required|min:3',
-        //     'email'=> 'required',
-        //     'cgpa' => 'required'
-        // ])->validate();
+    public  function store(UserRequest $req){
 
         
-        	
         		
                 $user = new User();
 
@@ -68,6 +62,7 @@ class homeController extends Controller
          }
 
     public function update($id, Request $req){
+
 
             $user = User::find($id); 
             $user->username     = $req->username;
