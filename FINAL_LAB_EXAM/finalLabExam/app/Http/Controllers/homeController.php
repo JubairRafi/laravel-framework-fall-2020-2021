@@ -64,7 +64,7 @@ class homeController extends Controller
 
     public function edit($id){
       $user = User::find($id);
-     // return view('home.edit', $user);
+        return view('home.updateEmployee', $user);
          }
 
     public function update($id, Request $req){
@@ -73,7 +73,7 @@ class homeController extends Controller
             $user->username     = $req->username;
             $user->password     = $req->password;
             $user->employeeName = $req->name;
-            $user->contactNo    = $req->contactNo;
+            $user->contactNo    = $req->contact;
             $user->save();
     
             return redirect()->route('home.employeelist');

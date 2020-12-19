@@ -31,7 +31,6 @@
 			<td>{{$users[$i]['contactNo']}}</td>
 			@if(session('restrict')=='admin')
 				<td>
-					<a href="/details/{{$users[$i]['userid']}}">Details</a> |
 					<a href="{{route('home.edit',$users[$i]['userid'])}}">Edit</a> |
 					<a href="/delete/{{$users[$i]['userid']}}">Delete</a> 
 				</td>
