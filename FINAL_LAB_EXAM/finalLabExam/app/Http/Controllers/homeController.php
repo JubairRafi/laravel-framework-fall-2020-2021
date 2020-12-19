@@ -16,6 +16,9 @@ class homeController extends Controller
         //$name = $req->session()->get('username');
         return view('home.index');
     }
+    public  function create(){
+        return view('home.register');
+    }
 
     public function employeelist(){
         $users =User::all();
