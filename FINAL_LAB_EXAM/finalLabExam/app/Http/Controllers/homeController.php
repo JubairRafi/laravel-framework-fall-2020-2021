@@ -20,6 +20,35 @@ class homeController extends Controller
         return view('home.register');
     }
 
+    public  function store(Request $req){
+        //$req->validate([
+        //   'name' => 'required|min:3',
+        //     'email'=> 'required',
+        //     'cgpa' => 'required'
+        // ])->validate();
+
+        
+        	
+        		
+                $user = new User();
+
+
+                $user->username     = $req->username;
+                $user->password     = $req->password;
+                $user->employeeName = $req->name;
+                $user->contactNo    = $req->contactNo;
+
+
+                if($user->save()){
+                    return redirect()->route('home.employeelist');
+                }else{
+                    return back();
+                }
+
+        	}
+        
+
+
     public function employeelist(){
         $users =User::all();
 
@@ -43,8 +72,8 @@ class homeController extends Controller
             $user = User::find($id); 
             $user->username     = $req->username;
             $user->password     = $req->password;
-            $user->name         = $req->name;
-            $user->contactNo         = $req->contactNo;
+            $user->employeeName = $req->name;
+            $user->contactNo    = $req->contactNo;
             $user->save();
     
             return redirect()->route('home.employeelist');

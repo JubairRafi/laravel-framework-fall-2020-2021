@@ -27,7 +27,7 @@
 					<td><input type="password" name="password" value="{{old('password')}}"></td>
 				</tr>
 				<tr>
-					<td>Name</td>
+					<td>contact</td>
 					<td><input type="text" name="contactNo" value="{{old('contactNo')}}"></td>
 				</tr>
 				
