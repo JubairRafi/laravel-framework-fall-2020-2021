@@ -16,7 +16,7 @@
 		<tr>
 			<td>ID</td>
 			<td>NAME</td>
-			<td>EMAIL</td>
+			<td>USERNAME</td>
 			<td>CGPA</td>
 			@if(session('restrict')=='admin')
 				<td>Action</td>
@@ -25,15 +25,15 @@
 
 		@for($i=0; $i < count($users); $i++)
 		<tr>
-			<td>{{$users[$i]['id']}}</td>
+			<td>{{$users[$i]['userid']}}</td>
 			<td>{{$users[$i]['name']}}</td>
-			<td>{{$users[$i]['email']}}</td>
+			<td>{{$users[$i]['username']}}</td>
 			<td>{{$users[$i]['cgpa']}}</td>
 			@if(session('restrict')=='admin')
 				<td>
-					<a href="/details/{{$users[$i]['id']}}">Details</a> |
-					<a href="{{route('home.edit',$users[$i]['id'])}}">Edit</a> |
-					<a href="/delete/{{$users[$i]['id']}}">Delete</a> 
+					<a href="/details/{{$users[$i]['userid']}}">Details</a> |
+					<a href="{{route('home.edit',$users[$i]['userid'])}}">Edit</a> |
+					<a href="/delete/{{$users[$i]['userid']}}">Delete</a> 
 				</td>
 			@endif
 		</tr>
@@ -42,3 +42,4 @@
 
 </body>
 </html>
+

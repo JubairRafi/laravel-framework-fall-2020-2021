@@ -25,7 +25,7 @@ Route::get('/logout', [logoutController::class, 'index']);
 
 Route::group(['middleware'=>['sess']],function(){
     Route::get('/home', [homeController::class, 'index'])->name('home.index');
-    Route::get('/userlist', [homeController::class, 'userlist'])->middleware('restrictF');
+    Route::get('/userlist', [homeController::class, 'userlist'])->middleware('restrictF')->name('home.userlist');
 
     Route::group(['middleware'=>['typeV']],function(){
         Route::get('/create', [homeController::class, 'create'])->name('home.create');

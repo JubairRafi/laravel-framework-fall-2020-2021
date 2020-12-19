@@ -11,7 +11,7 @@ class loginController extends Controller
        return view('login.index');
    }
    public function verifyy(Request $req){
-       $users=user::where('username', $req->username)
+       $users=User::where('username', $req->username)
                    ->where('password', $req->password)
                    ->first();
         echo $users;
