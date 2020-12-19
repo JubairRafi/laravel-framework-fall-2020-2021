@@ -12,11 +12,11 @@
 		<table border="1">
 			<tr>
 				<td>Name</td>
-				<td>{{$name}}</td>
+				<td>{{$username}}</td>
 			</tr>
 			<tr>
-				<td>Email</td>
-				<td>{{$email}}</td>
+				<td>Department</td>
+				<td>{{$dept}}</td>
 			</tr>
 			<tr>
 				<td>CGPA</td>
@@ -24,7 +24,7 @@
 			</tr>
 			<tr>
 				<td>Image</td>
-				<td><img src="{{asset('upload/'.$img)}}" width="100px" height="100px"></td>
+				<td><img src="{{asset('upload/'.$profile_img)}}" width="100px" height="100px"></td>
 			</tr>
 		</table>
 </body>

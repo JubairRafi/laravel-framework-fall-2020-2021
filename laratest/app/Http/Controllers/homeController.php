@@ -9,7 +9,7 @@ use Validator;
 
 class homeController extends Controller
 {
-    function index(Request $req){
+   public function index(Request $req){
         // $data = ['id'=>123,'name'=>'rafi'];
         // return view('home.index',$data);
 
@@ -18,10 +18,10 @@ class homeController extends Controller
         return view('home.index', compact('id', 'name'));
     }
 
-    function create(){
+    public  function create(){
         return view('home.create');
     }
-    function store(UserRequest $req){
+    public   function store(UserRequest $req){
         // $req->validate([
         //     'name' => 'required|min:3',
         //     'email'=> 'required',
@@ -59,35 +59,50 @@ class homeController extends Controller
         //return redirect('/userlist');
     }
 
-    function userlist(){
+    public function userlist(){
         $users =User::all();
 
         return view('home.userlist')->with('users',$users);
     }
 
-    function show($id){
+    public function show($id){
         // echo $id;
-        $user = ['id'=> 1, 'name'=>'xyz', 'email'=>'xyz@aiub.edu', 'cgpa'=>4, 'img'=>'2.jpg'];
+        $user = User::find($id);
 
         return view('home.userdetails', $user);
         }
 
-    function edit($id){
-       echo $id;
+    public function edit($id){
+      $user = User::find($id);
+      return view('home.edit', $user);
          }
 
-    function delete($id){
-       
+    public function update($id, Request $req){
 
-        return view('home.userlist')->with('users',$users);
-         }
-
-   function update($id){
-        echo $id;
+            $user = User::find($id); 
+            $user->username     = $req->username;
+            $user->password     = $req->password;
+            $user->name         = $req->name;
+            $user->dept         = $req->dept;
+            $user->cgpa         = $req->cgpa;
+            $user->type         = $req->type;
+            $user->save();
+    
+            return redirect()->route('home.userlist');
         }
 
-    function destroy($id){
-        echo $id;
+    public function delete($id){
+        $user = User::find($id); 
+        return view('home.delete', $user);
+
+         }
+
+   
+
+    public function destroy($id){
+        $user = User::find($id); 
+        $user->delete();
+        return redirect()->route('home.userlist');
         }
 
     private function getUserlist(){

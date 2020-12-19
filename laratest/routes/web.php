@@ -36,7 +36,7 @@ Route::group(['middleware'=>['sess']],function(){
         Route::get('/edit/{id}', [homeController::class, 'edit'])->name('home.edit');
         Route::post('/edit/{id}', [homeController::class, 'update']);
         
-        Route::get('/delete/{id}', [homeController::class, 'delete']);
+        Route::get('/delete/{id}', [homeController::class, 'delete'])->name('home.delete');
         Route::post('/delete/{id}', [homeController::class, 'destroy']);
     });
     
